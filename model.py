@@ -154,6 +154,9 @@ def _preprocess_data(data):
     df_dummies.columns = [col.replace(" ","_") for col in df_dummies.columns] 
     df_test_dummies.columns = [col.replace(" ","_") for col in df_test_dummies.columns]
 
+    # Calculate correlations between predictor variables and the response variable
+    corrs = df_dummies.corr()['load_shortfall_3h'].sort_values(ascending=False)
+
     #Reindexing the new DF such the load_shortfall_3h becomes the last column.
     column_titles = [col for col in df_dummies.columns if col!= 'load_shortfall_3h'] + ['load_shortfall_3h']
     df_dummies=df_dummies.reindex(columns=column_titles)
