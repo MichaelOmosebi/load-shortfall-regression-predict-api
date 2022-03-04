@@ -164,6 +164,9 @@ def _preprocess_data(data):
     column_test_titles = [col for col in df_test_dummies.columns if col!= 'load_shortfall_3h']
     df_test_dummies=df_test_dummies.reindex(columns=column_test_titles)
 
+    df_dummies.set_index('time', inplace=True)
+    df_test_dummies.set_index('time', inplace=True)
+
     Val_wind_sp = df['Valencia_wind_speed'].mean()
     df.loc[df['Valencia_wind_speed'] == df['Valencia_wind_speed'].max(), ['Valencia_wind_speed']] = Val_wind_sp
 
@@ -199,6 +202,7 @@ def _preprocess_data(data):
     #scale data
     # split data
     X_corr_train = X_data[X_corr_names]
+    df_test_dummies = df_test_dummies[X_corr_names]
 
 
 
@@ -207,7 +211,7 @@ def _preprocess_data(data):
                                                     test_size=0.20,
                                                     shuffle=False)
 
-    return (X_val)
+    return (df_test_dummies)
     # ------------------------------------------------------------------------
 
 def load_model(path_to_model:str):
