@@ -63,7 +63,7 @@ def _preprocess_data(data):
 
     # ----------- Replace this code with your own preprocessing steps --------
     # train data
-    df = pd.read_csv("util/data/df_train.csv", parse_dates=['time'])
+    df = pd.read_csv("utils/data/df_train.csv", parse_dates=['time'])
     df_test = pd.read_csv("utils/data/df_test.csv")
     #----------------------------------------------------------------------------------------
     # test data
