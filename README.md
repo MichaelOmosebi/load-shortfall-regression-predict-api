@@ -276,6 +276,6 @@ We wish you all the best in your learning experience :rocket:
 <p align='center'>
    <img src="assets/imgs/EDSA_logo.png"
    alt='EXPLORE Data Science Academy Logo'
-   width=450px/>
+   width=1000px/>
    <br>
 </p>
